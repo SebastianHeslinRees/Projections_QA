@@ -51,6 +51,8 @@ The functions in this notebook are designed to work with datasets produced by th
 
 - **gss_code**: Borough geocode (e.g., GSS code).
 - **la_name**: Local Authority name.
+- **gss_code_ward**: Geocode for the ward.
+- **ward_name**: Name of the ward.
 - **Year**: The year of the population data.
 - **Sex**: The gender (male/female).
 - **Age**: The age group or specific age.
@@ -63,11 +65,6 @@ This column includes specific population-related metrics:
 - **popn**: Total population.
 - **birth**: Number of births.
 - **deaths**: Number of deaths.
-
-### Additional Columns
-
-- **gss_code_ward**: Geocode for the ward.
-- **ward_name**: Name of the ward.
 
 ---
 
@@ -102,12 +99,12 @@ To use this script:
    pip install -r requirements.txt
    ```
 
-3. Open the Jupyter Notebook:
+3. Open the Jupyter Notebook or your chosen IDE:
    ```bash
    jupyter notebook
    ```
 
-4. Run the notebook to analyse the population projections dataset.
+4. Run the notebook to QA population projections dataset.
 
 ---
 
@@ -125,4 +122,4 @@ please email [sebastian.heslin-rees@london.gov.uk] for license infomation.
 
 ## 📄 Acknowledgements
 
-- [GLA Population Projection](https://www.gla.gov.uk) for the dataset.
+- [GLA Population Projection]([https://www.gla.gov.uk](https://www.london.gov.uk/)) for the dataset.
