@@ -38,7 +38,7 @@ The analysis focuses on the following objectives:
   - Group data by **age ranges**.
   - Visualise **yearly totals**.
   - Show yearly total trends over time, broken down by components.
-  - Create **population pyramids**.
+  - Create animated **population pyramids** with dropdown selections for boroughs and wards.
 - **Collate Outliers**: Summarise and determine the key outlier rows.
 
 ---
