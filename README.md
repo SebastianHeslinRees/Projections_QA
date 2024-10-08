@@ -91,7 +91,7 @@ To use this script:
 1. Clone the repository:
    ```bash
    git clone https://github.com/SebastianHeslinRees/Projections_QA.git
-   cd repo-name
+   cd Projections_QA
    ```
 
 2. Install the required packages:
