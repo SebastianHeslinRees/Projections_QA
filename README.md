@@ -43,7 +43,7 @@ The analysis focuses on the following objectives:
 
 ---
 
-## 📂 Dataset
+## 📂 Datasets
 
 The functions in this notebook are designed to work with datasets produced by the GLA Population Projection Workflow. The current iteration of this workflow contains several key columns and components as outlined below:
 
