@@ -1,86 +1,105 @@
-# 📊 QA Script for Population Projections
+# 📊 **QA Script for Population Projections**
+
+## 📝 **Introduction**
+This repository contains a script and resources for analysing the Greater London Authority (GLA) population projection data. The primary objective is to identify outliers in the population data and present the findings through visualisations and a Dash application within an HTML report.  
+
+### 🎯 **Goals**
+The project focuses on the following key objectives:  
+1. **Data Loading**: Load the GLA population projections dataset.  
+2. **Utility Functions**: Define reusable functions to support data analysis and reporting.  
+3. **Data Processing**:  
+    - Perform **basic checks** on the dataset:
+      - Determine the range of years covered.
+      - Identify missing values, duplicates, and negative values.
+      - Analyse descriptive statistics.
+      - Perform a breakdown by components.
+      - Validate age group ranges.  
+4. **Outlier Detection**:
+    - Analyse **population consistency over time** for each component:
+      - Use **Z-scores** and **Robust Z-scores** to detect outliers.
+      - Evaluate data by **component**, **ward**, and **borough**.
+      - Address **infinite values** separately.  
+    - Identify **total population outliers**:
+      - Perform **cross-sectional comparisons**: Analyse differences between boroughs and wards in a given year.
+      - Conduct **temporal comparisons**: Measure percentage changes in population over time for boroughs and wards.  
+    - Investigate **gender outliers**:
+      - Identify anomalies in **gender ratios**.
+      - Adjust **outlier thresholds** based on specific components as needed.  
+5. **Key Visualisations**: Create meaningful visualisations:
+    - Component-wise population distributions.
+    - Grouped data by age ranges.
+    - Yearly total population trends over time (with breakdowns by component).  
+    - Dash applications:
+      - **Population Pyramid App**: Display demographic breakdowns.
+      - **Line Graph Ward App**: Show trends for individual wards.
+      - **Ward Distribution App**: Visualise the distribution of population values across wards.  
+6. **HTML Report**:
+    - Format tables and charts for inclusion in the HTML report.
+    - Produce a user-friendly report layout.  
 
 ---
 
-## 📝 Introduction
+## 📂 **Datasets**
+This project analyses two key datasets:  
 
-This repository contains a notebook designed to identify outliers in the Greater London Authority (GLA) population projection data. The analysis involves loading the dataset, preprocessing the data, defining utility functions, performing outlier detection, and presenting the results through visualisations.
+### **Dataset 1**: Population Projections  
+The primary dataset includes borough and ward-level population projections. It is structured as follows:  
 
-### 🎯 Goals
+#### Main Columns:  
+- **gss_code**: Borough geocode (e.g., GSS code).  
+- **la_name**: Local Authority name.  
+- **Year**: The year of the population data.  
+- **Sex**: Gender (male/female).  
+- **Age**: Age group or specific age.  
+- **Value**: Population count for the given category.  
+- **gss_code_ward**: Geocode for the ward.  
+- **ward_name**: Name of the ward.  
 
-The analysis focuses on the following objectives:
+#### Components Column:  
+This column includes key metrics such as:  
+- **net-flow**: Net migration (inflow minus outflow).  
+- **popn**: Total population.  
+- **birth**: Number of births.  
+- **deaths**: Number of deaths.  
 
-- **Load and preprocess** the population projections dataset.
-- Define utility functions for effective use.
-- Perform **basic checks** on the dataset, including:
-  - Range of years covered.
-  - Missing values.
-  - Duplicates.
-  - Descriptive statistics.
-  - Breakdown by components.
-  - Detecting negative values.
-  - Age group ranges.
-- **Outlier Detection** over time for each component:
-  - Identify outliers using **Z-scores** and **Robust Z-scores**.
-  - Analyse by **component**, **ward**, and **borough**.
-  - Handle **infinite values** separately.
-- **Total Population Outliers**:
-  - Compare outliers using Z-scores and Robust Z-scores.
-  - Perform **cross-sectional comparisons**: Examine changes between boroughs and wards for a given year.
-  - Conduct **temporal comparisons**: Measure percentage changes between years for both boroughs and wards.
-  - Handle **infinite values** separately.
-- **Gender Outliers**:
-  - Investigate abnormal **gender ratios**.
-  - Analyse by component.
-  - Adjust the **outlier standard deviation thresholds** as needed based on different components.
-- **Key Visualisations**:
-  - Display the distribution of components.
-  - Group data by **age ranges**.
-  - Visualise **yearly totals**.
-  - Show yearly total trends over time, broken down by components.
-  - Create animated **population pyramids** with dropdown selections for boroughs and wards.
-- **Collate Outliers**: Summarise and determine the key outlier rows.
+### **Dataset 2**: Average Household Size (AHS)  
+This dataset includes the average household size (AHS) from 2021 to 2050, aggregated by ward. The outlier detection function, `find_ahs_outliers_with_context`, is applied to this dataset.
 
 ---
 
-## 📂 Datasets
-
-The functions in this notebook are designed to work with datasets produced by the GLA Population Projection Workflow. The current iteration of this workflow contains several key columns and components as outlined below:
-
-### Main Columns
-
-- **gss_code**: Borough geocode (e.g., GSS code).
-- **la_name**: Local Authority name.
-- **gss_code_ward**: Geocode for the ward.
-- **ward_name**: Name of the ward.
-- **Year**: The year of the population data.
-- **Sex**: The gender (male/female).
-- **Age**: The age group or specific age.
-- **Value**: Count of the population in the given category.
-
-### Components Column
-
-This column includes specific population-related metrics:
-- **net-flow**: Population migration inflow minus migration outflow.
-- **popn**: Total population.
-- **birth**: Number of births.
-- **deaths**: Number of deaths.
+## 🛠️ **Project Structure**
+1. **Load Data**: Import the population projections dataset.  
+2. **Define Utility Functions**: Create reusable code for consistent analysis.  
+3. **Process Data**: Clean and transform the data for further analysis.  
+4. **Basic Checks**: Validate the dataset’s integrity.  
+5. **Population Consistency Over Time**: Identify trends and outliers for each component.  
+6. **Total Population Outliers**: Detect deviations in total population values across wards and boroughs.  
+7. **Gender Outliers**: Analyse anomalies in gender ratios.  
+8. **Key Visualisations**: Generate interactive and static charts, including Dash apps for dynamic exploration.  
+9. **Average Household Size Outliers**: Identify outliers in the AHS dataset.  
+10. **HTML Report**: Collate findings and visualisations into an HTML report.
 
 ---
 
-## 🛠️ Structure
-
-This notebook is structured as follows:
-
-1. [Load and Preprocess](#load-and-preprocess) the population projections dataset.
-2. [Define Utility Functions](#define-utility-functions) for effective use.
-3. [Process Data](#process-data).
-4. [Basic Checks](#basic-checks) on the dataset.
-5. [Population Consistency Over Time](#population-consistency-over-time) for each component.
-6. [Total Population Outliers](#total-population-outliers).
-7. [Gender Outliers](#gender-outliers).
-8. [Key Visualisations](#key-visualisations).
-9. [Collate Outliers](#collate-outliers) to determine key outlier rows.
+## 🔧 **Required Packages**
+Below are the required packages used in this project:  
+```python
+import pandas as pd
+import numpy as np
+import pyreadr
+import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+import plotly.express as px
+import dash_bootstrap_components as dbc
+from scipy.stats import zscore, skew
+from typing import Dict
+import plotly.io as pio
+```
 
 ---
 
