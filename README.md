@@ -1,7 +1,7 @@
 # 📊 **QA Script for Population Projections**
 
 ## 📝 **Introduction**
-This repository contains a script and resources for analysing the Greater London Authority (GLA) population projection data. The primary objective is to identify outliers in the population data and present the findings through visualisations and a Dash application within an HTML report.  
+This repository contains a script and resources for analysing the Greater London Authority (GLA) population projection data. The primary objective is to identify outliers in the population data and present the findings through tables, visualisations and Dash applications within an HTML report.  
 
 ### 🎯 **Goals**
 The project focuses on the following key objectives:  
@@ -35,7 +35,8 @@ The project focuses on the following key objectives:
       - **Ward Distribution App**: Visualise the distribution of population values across wards.  
 6. **HTML Report**:
     - Format tables and charts for inclusion in the HTML report.
-    - Produce a user-friendly report layout.  
+    - Produce a user-friendly report layout.
+    - Use of some Javascript to enhance table interaction and speed
 
 ---
 
