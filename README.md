@@ -78,6 +78,18 @@ Below is an example schema for the Dataset 1 table.
 ### **Dataset 2**: Average Household Size (AHS)  
 This dataset includes the average household size (AHS) from 2021 to 2050, aggregated by ward. The outlier detection function, `find_ahs_outliers_with_context`, is applied to this dataset.
 
+Below is an example schema for the Dataset 2 table.
+
+**Dataset 2: Average Household Size (AHS)**
+
+| gss_code_ward | 2021     | 2022     | 2023     | ... | 2048     | 2049     | 2050     |
+|---------------|----------|----------|----------|-----|----------|----------|----------|
+| E09000001     | 1.729055 | 2.141426 | 2.087426 | ... | 1.950291 | 1.953340 | 1.956169 |
+| E05014053     | 2.813790 | 2.548360 | 2.275661 | ... | 2.213891 | 2.224858 | 2.235705 |
+| E05014054     | 2.909020 | 2.883138 | 2.922277 | ... | 2.879492 | 2.890862 | 2.901789 |
+| E05014055     | 2.951577 | 2.634936 | 2.445635 | ... | 2.375091 | 2.388186 | 2.400488 |
+| E05014056     | 3.048425 | 2.873637 | 2.762628 | ... | 2.608712 | 2.606719 | 2.604483 |
+
 ---
 
 ## 🛠️ **Project Structure**
