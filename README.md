@@ -56,12 +56,24 @@ The primary dataset includes borough and ward-level population projections. It i
 - **gss_code_ward**: Geocode for the ward.  
 - **ward_name**: Name of the ward.  
 
-#### Components Column:  
+#### Components:  
 This column includes key metrics such as:  
 - **net-flow**: Net migration (inflow minus outflow).  
 - **popn**: Total population.  
 - **birth**: Number of births.  
-- **deaths**: Number of deaths.  
+- **deaths**: Number of deaths.
+
+Below is an example schema for the Dataset 1 table.
+
+**Dataset 1: Population Projections**
+
+| gss_code   | la_name         | year  | sex    | age   | value | component | gss_code_ward | ward_name       |
+|------------|-----------------|-------|--------|-------|-------|-----------|---------------|-----------------|
+| E09000001  | City of London  | 2012  | female | 0     | 32    | births    | E09000001     | City of London  |
+| E09000001  | City of London  | 2012  | male   | 0     | 24    | births    | E09000001     | City of London  |
+| E09000001  | City of London  | 2013  | female | 0     | 36    | births    | E09000001     | City of London  |
+| E09000001  | City of London  | 2013  | male   | 0     | 35    | births    | E09000001     | City of London  |
+| E09000001  | City of London  | 2014  | female | 0     | 26    | births    | E09000001     | City of London  |
 
 ### **Dataset 2**: Average Household Size (AHS)  
 This dataset includes the average household size (AHS) from 2021 to 2050, aggregated by ward. The outlier detection function, `find_ahs_outliers_with_context`, is applied to this dataset.
