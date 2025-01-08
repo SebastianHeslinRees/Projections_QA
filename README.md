@@ -33,7 +33,7 @@ The project focuses on the following key objectives:
       - **Population Pyramid App**: Display demographic breakdowns.
       - **Line Graph Ward App**: Show trends for individual wards.
       - **Ward Distribution App**: Visualise the distribution of population values across wards.  
-6. **HTML Report**:
+6. **Output HTML Report**:
     - Format tables and charts for inclusion in the HTML report.
     - Produce a user-friendly report layout.
     - Use of some Javascript to enhance table interaction and speed
