@@ -4,13 +4,13 @@
     <title>Population Projections Report</title>
     <link rel="icon" href="https://resource.esriuk.com/wp-content/uploads/2017/06/GLA-Logo-Resized.png" type="image/png">
     
-    <!-- Include jQuery and DataTables CSS & JS -->
+    <!-- Include jQuery, DataTables, FontAwesome -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* General Styling */
         body {
             font-family: Arial, sans-serif;
             color: #333;
@@ -93,19 +93,47 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        /* Tooltip Styling */
+        .info-tooltip {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            margin-left: 8px;
+            color: #3498db;
+            font-weight: normal;
+            font-size: 1em;
+        }
+        .info-tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            font-size: 0.7em;
+            border-radius: 5px;
+            white-space: normal;
+            z-index: 10;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Company Logo -->
         <img src="https://resource.esriuk.com/wp-content/uploads/2017/06/GLA-Logo-Resized.png" alt="Company Logo" class="logo">
 
-        <!-- Report Title -->
         <h1>Population Projections Outlier Report</h1>
-
-        <!-- Add Check Results -->
+        <h2>
+            Basic Sense Check
+            <span class="info-tooltip" data-tooltip="Welcome to the GLA population Projections Outlier Report tool! This is first section providing a basic sense check of the data. It includes checks for year ranges, missing values, duplicates, negative values, and age range checks. Please
+            note that we expectt missing values in 2011 where the data starts">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         
-<h2>Basic sense check</h2>
 <h4>Year ranges</h4>
 <p>Complete year range: (2050, 2011)</p>
 <p>Year range for wards: (2050, 2011)</p>
@@ -395,8 +423,13 @@
 </div>
 
 
-        <!-- Tallied Dataframe -->
-        <h2>Tallied Outlier Table</h2>
+        <h2>
+            Tallied Outlier Table
+            <span class="info-tooltip" data-tooltip="The data is split in a number of different ways to identify areas where outliers may arise, such as changes in gender ratio, percentage change or crossectional changes between wards (please look at the code documentation if futher infromation is required). 
+            Each method produces a table showing wards that appear as outliers. An occurrence in a given outlier table is marked with a 1, then all are tallied and ranked to determine which wards appear most frequently. This helps identify wards that may need further investigation in the visualisations below.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div class="table-container">
             <table border="1" class="dataframe">
   <thead>
@@ -1681,8 +1714,12 @@
 </table>
         </div>
 
-        <!-- Household Size Tables with Tabs -->
-        <h2>Household Size Analysis</h2>
+        <h2>
+            Household Size Analysis
+            <span class="info-tooltip" data-tooltip="Click through each tab to view different perspectives on household size data, including percentage change, absolute size, and tables that exclude repeated wards across different years (Unique Ward View). You can sort and search within each table.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div class="tabs household-size-tabs">
             <div class="tab active" data-tab="tab1">Household Size Absolute</div>
             <div class="tab" data-tab="tab2">Household Size Percentage Change</div>
@@ -2734,7 +2771,7 @@
 </table>
             </div>
         </div>
-                <div class="tab-content household-size-tab-content" id="tab4">
+        <div class="tab-content household-size-tab-content" id="tab4">
             <h2>Average Household Size Percentage Change Table</h2>
             <div class="table-container">
                 <table border="1" class="dataframe">
@@ -2872,8 +2909,13 @@
             </div>
         </div>
 
-        <!-- Population Analysis Tables with Tabs -->
-        <h2>Total Yearly Population Tables</h2>
+        <h2>
+            Total Yearly Population Tables
+            <span class="info-tooltip" data-tooltip="Shows total population change over time. Useful for spotting anomalies in growth trends. The 'Total Ward Population Yearly Change' table looks at percentage change from year to year whereas 
+            'Total Population Compared to Average Ward Population' compares the total population to the average population of all wards for a given year. The Unique Ward View excludes repeated wards across different years.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div class="tabs population-analysis-tabs">
             <div class="tab active" data-tab="tab5">Total Ward Population Yearly Change</div>
             <div class="tab" data-tab="tab6">Total Population Compared to Average Ward Population</div>
@@ -9372,7 +9414,7 @@
 </table>
             </div>
         </div>
-           <div class="tab-content population-analysis-tab-content" id="tab7">
+        <div class="tab-content population-analysis-tab-content" id="tab7">
             <h2>Annual Percentage Change in Total Population Compared to the Average Population of All Wards (Unique)</h2>
             <div class="table-container">
                 <table border="1" class="dataframe data">
@@ -10625,7 +10667,7 @@
 </table>
             </div>
         </div>
-           <div class="tab-content population-analysis-tab-content" id="tab8">
+        <div class="tab-content population-analysis-tab-content" id="tab8">
             <h2>Annual Percentage Change in Total Population Compared to the Average Population of All Wards (Unique)</h2>
             <div class="table-container">
                 <table border="1" class="dataframe data">
@@ -10767,50 +10809,67 @@
             </div>
         </div>
 
-         <!-- Interactive Line Plot -->
-        <h2>Component Trends Over Time Totals</h2>
+        <h2>
+            Component Trends Over Time Totals
+            <span class="info-tooltip" data-tooltip="This interactive chart displays total component trends over time. Use zoom/pan to explore further. Please note the default render for the graph excludes the population component, this can be toggled on and off using the legend.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div>
             <iframe src="interactive_line_plot.html" width="100%" height="600" frameborder="0"></iframe>
         </div>
 
-        <!-- Swarm plot -->
-        <h2>Visualising Potential Outliers</h2>
+        <h2>
+            Visualising Potential Outliers
+            <span class="info-tooltip" data-tooltip="This plot helps identify outliers visually using a swarm plot, containing all wards. Change the component using the dropdown and hover for more details. Click the play button to animate through the years.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div>
             <iframe src="http://localhost:2000" width="100%" height="800" frameborder="0"></iframe>
         </div>
 
-        <!-- Population Pyramid Visualisation -->
-        <h2>Population Pyramid</h2>
+        <h2>
+            Population Pyramids
+            <span class="info-tooltip" data-tooltip="Explore population distribution for a wards and boroughs using population pyramids. When selecting 'All Wards' within the ward dropdown, this will show the population pyramid for the whole borough">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div>
             <iframe src="http://localhost:1223" width="100%" height="800" frameborder="0"></iframe>
         </div>
 
-        <!-- Component Trends Over Time -->
-        <h2>Component Trends Over Time</h2>
+        <h2>
+            Component Trends Over Time
+            <span class="info-tooltip" data-tooltip="Explore individual wards in more detail by selecting different components and age ranges. Box plots are used to visualise the distribution of various age groups, helping to identify potential outling age groups.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div>
             <iframe src="http://localhost:1333" width="100%" height="800" frameborder="0"></iframe>
         </div>
 
-         <!-- Average Household Size Trend-->
-        <h2>Household and Population Trend Comparsion</h2>
+        <h2>
+            Household and Population Trend Comparsion
+            <span class="info-tooltip" data-tooltip="Compare household size trends to population trends to identify inconsistencies for a given ward. Includes percentage changes and absolute values for households and population.">
+                <i class="fas fa-info-circle"></i>
+            </span>
+        </h2>
         <div>
             <iframe src="http://localhost:8121" width="100%" height="800" frameborder="0"></iframe>
         </div>
 
-        <!-- Footer Section -->
         <div class="footer">
             <p>This is an automated report produced by the Greater London Authority (GLA). The script provided is merely a suggestion for areas to investigate further regarding outliers and potential errors in the population projections. It is not guaranteed to capture every error that may exist within the dataset.</p>
             <p>If you require further information, please email <a href="mailto:Sebastian.Heslin-Rees@london.gov.uk">Sebastian.Heslin-Rees@london.gov.uk</a>.</p>
         </div>
     </div>
 
-    <!-- DataTable and Tab Script -->
+    <!-- Script for DataTables and Tabs -->
     <script>
         $(document).ready(function() {
-            // Initialize DataTables
             $('table').DataTable();
 
-            // Tab functionality for Household Size
             $('.household-size-tabs .tab').on('click', function() {
                 var tabId = $(this).data('tab');
                 $('.household-size-tabs .tab').removeClass('active');
@@ -10819,7 +10878,6 @@
                 $('#' + tabId).addClass('active');
             });
 
-            // Tab functionality for Population Analysis
             $('.population-analysis-tabs .tab').on('click', function() {
                 var tabId = $(this).data('tab');
                 $('.population-analysis-tabs .tab').removeClass('active');
